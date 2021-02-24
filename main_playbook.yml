@@ -1,9 +1,9 @@
 ---
 - hosts: labservers
-vars:
-  rule: http
+  vars:
+    rule: http
   become: yes
-tasks:
+  tasks:
   - name: include the variables from teh YAML file
     include_vars: vars/variables.yml
 
