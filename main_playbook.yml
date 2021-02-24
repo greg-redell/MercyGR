@@ -30,7 +30,7 @@
       service: "{{ rule }}"
       immediate: true
       permanent: true
-      state: true
+      state: enabled
 
   - name: Create index.html file for hosting static content
     copy:
