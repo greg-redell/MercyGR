@@ -8,15 +8,17 @@
     include_vars: vars/variables.yml
 
   - name: Include the environment file and set the variables
-     import_tasks: tasks/environment.yml
-     vars:
-        package: httpd
-        service: httpd
-        svc_state: started
+    import_tasks: tasks/environment.yml
+    vars:
+      package: httpd
+      service: httpd
+      svc_state: started
+
   - name: install the firewall
       yum:
         name: "{{ firewall_pkg }}"
         state: latest
+
   - name: start the firewall
      service:
        name: firewalld
