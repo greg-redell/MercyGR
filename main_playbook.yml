@@ -9,6 +9,7 @@
 
   - name: Include the environment file and set the variables
      import_tasks: tasks/environment.yml
+     vars:
         package: httpd
         service: httpd
         svc_state: started
