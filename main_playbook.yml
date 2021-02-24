@@ -15,21 +15,21 @@
       svc_state: started
 
   - name: install the firewall
-      yum:
-        name: "{{ firewall_pkg }}"
-        state: latest
+    yum:
+      name: "{{ firewall_pkg }}"
+      state: latest
 
   - name: start the firewall
-     service:
-       name: firewalld
-       state: started
-       enabled: true
+    service:
+      name: firewalld
+      state: started
+      enabled: true
   - name: open the port for the {{ rule }}
-     firewalld:
-       service: "{{ rule }}"
-       immediate: true
-       permanent: true
-       state: true
+    firewalld:
+      service: "{{ rule }}"
+      immediate: true
+      permanent: true
+      state: true
   - name: Create index.html file for hosting static content
     copy:
       content: "{{ ansible_fqdn }} has been customized using Ansible on the {{ansible_date_time.date }}\n"
