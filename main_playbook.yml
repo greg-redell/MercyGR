@@ -24,12 +24,14 @@
       name: firewalld
       state: started
       enabled: true
+
   - name: open the port for the {{ rule }}
     firewalld:
       service: "{{ rule }}"
       immediate: true
       permanent: true
       state: true
+      
   - name: Create index.html file for hosting static content
     copy:
       content: "{{ ansible_fqdn }} has been customized using Ansible on the {{ansible_date_time.date }}\n"
