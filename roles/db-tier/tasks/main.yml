@@ -10,7 +10,7 @@
 - name: Start mysql
   service:
    name: "{{ db_srv }}"
-   enable: true
+   enabled: true
    state: started
 
 - name: start firewalld
